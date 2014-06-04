@@ -8,6 +8,10 @@ class BooksController < ApplicationController
     respond_with Book.all
   end
 
+  def create
+    respond_with Book.create(book_params)
+  end
+
   def show
     respond_with @book
   end
@@ -23,8 +27,10 @@ class BooksController < ApplicationController
   private
     def set_book
       @book = Book.find(book_params)
+    end
 
     def book_params
       params.require(:book).permit(:title, :author, :isbn, :description)
+    end
 
 end
