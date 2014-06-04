@@ -1,3 +1,19 @@
-pages
+<h1>Book App</h1>
 
-{{1+2}}
+<div ng-controller="BooksCtrl">
+
+	<form ng-submit="addBook()">
+		<input type="text" ng-model="newBook.title" placeholder= "Title">
+		<input type="text" ng-model="newBook.author" placeholder= "Author">
+		<input type="text" ng-model="newBook.isbn" placeholder= "ISBN">
+		<input type="text" ng-model="newBook.description" placeholder= "Description">
+		<button>Add</button>
+	</form>
+
+	<ul ng-repeat="book in books">
+		<!-- edit form goes here, use ng-show to toggle on/off -->
+		<!-- also a form -->
+		<li>{{book.title}} - {{book.author}} <button ng-click="deleteBook()">Delete</button></li>
+	</ul>
+
+</div>
